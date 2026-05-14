@@ -6,6 +6,8 @@
 
 A Model Context Protocol server for Metabase integration.
 
+> This is the `ultimate-guitar/mcp-metabase-server` fork. All installation instructions below pull from this fork (`https://github.com/ultimate-guitar/mcp-metabase-server`) rather than the upstream `imlewc/metabase-server` repository / `@imlewc/metabase-server` npm package.
+
 This is a TypeScript-based MCP server that implements integration with Metabase API. It allows AI assistants to interact with Metabase, providing access to:
 
 - Dashboards, questions/cards, and databases as resources
@@ -79,8 +81,8 @@ npm run watch
 
 ## Installation
 ```bash
-# Oneliner, suitable for CI environment
-git clone https://github.com/imlewc/metabase-server.git && cd metabase-server && npm i && npm run build && npm link
+# Oneliner, suitable for CI environment (installs from the ultimate-guitar fork)
+git clone https://github.com/ultimate-guitar/mcp-metabase-server.git && cd mcp-metabase-server && npm i && npm run build && npm link
 ```
 
 To use with Claude Desktop, add the server config:
@@ -118,14 +120,14 @@ npx -y @smithery/cli install @imlewc/metabase-server --client claude
 
 ### Installing via Claude Code CLI
 
-To install metabase-server for Claude Code CLI:
+To install metabase-server (from the `ultimate-guitar/mcp-metabase-server` fork) for Claude Code CLI:
 
 ```bash
 claude mcp add metabase-server -s user \
   -e METABASE_URL="https://your-metabase-instance.com" \
   -e METABASE_USERNAME="your-email@example.com" \
   -e METABASE_PASSWORD="your-password" \
-  -- npx -y @imlewc/metabase-server
+  -- npx -y github:ultimate-guitar/mcp-metabase-server
 ```
 
 Or using API Key (preferred):
@@ -134,7 +136,7 @@ Or using API Key (preferred):
 claude mcp add metabase-server -s user \
   -e METABASE_URL="https://your-metabase-instance.com" \
   -e METABASE_API_KEY="your-api-key" \
-  -- npx -y @imlewc/metabase-server
+  -- npx -y github:ultimate-guitar/mcp-metabase-server
 ```
 
 Configuration will be written to `~/.claude.json`:
@@ -145,7 +147,7 @@ Configuration will be written to `~/.claude.json`:
     "metabase-server": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@imlewc/metabase-server"],
+      "args": ["-y", "github:ultimate-guitar/mcp-metabase-server"],
       "env": {
         "METABASE_URL": "https://your-metabase-instance.com",
         "METABASE_USERNAME": "your-email@example.com",
